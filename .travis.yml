@@ -14,4 +14,19 @@ script :
 # if from any of the below commands it gets any return code other than 0 then its going to assume that the process has failed
 
 - docker run vmalse/docker-react npm run test -- --coverage
+
+
 #the only problem here is that "npm run test" wait for input from the user and doesn't terminate itself automatically, and to make it stop automatically we will use -- --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react-new-demo"
+  env: "DockerReactNewDemo-env" 
+  bucket-name: elasticbeanstalk-us-east-2-563953357779
+  bucket-path: "docker-react-new-demo"
+  on
+    branch: master
+  access_key_id: “$AWS_ACCESS_KEY" 
+  secret_access_key: 
+   secure: “$AWS_SECRET_KEY”
