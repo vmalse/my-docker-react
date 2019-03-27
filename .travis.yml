@@ -25,7 +25,7 @@ deploy:
   env: "DockerReactNewDemo-env" 
   bucket-name: elasticbeanstalk-us-east-2-563953357779
   bucket-path: "docker-react-new-demo"
-  on
+  on: 
     branch: master
   access_key_id: “$AWS_ACCESS_KEY"
   secret_access_key: 
