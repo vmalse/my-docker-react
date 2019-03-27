@@ -12,6 +12,7 @@ RUN npm run build
 #run phase for running nginx
 
 FROM nginx
+EXPOSE 80
 # this also states that previous block is complete
 COPY  --from=builder /app/build /usr/share/nginx/html
 #using this container will be-default take care of starting up nginx in nginx image itself
